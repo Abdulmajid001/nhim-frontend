@@ -242,7 +242,7 @@ function formatPrice(price) {
   return new Intl.NumberFormat("en-NG").format(price);
 }
 
-export function FeaturedPlansGrid({ featured }) {
+export function TopInsurancePlansGrid({ featured }) {
   const scrollRef = useRef(null);
   const autoSlideRef = useRef(null);
 

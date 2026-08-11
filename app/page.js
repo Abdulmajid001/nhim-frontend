@@ -6,6 +6,7 @@ import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { HmoComparisonPreview } from "@/components/marketing/HmoComparisonPreview";
 import { ForHmoCta } from "@/components/marketing/ForHmoCta";
 import { FeaturedPlans } from "@/components/marketing/FeaturedPlans";
+import { TopInsurancePlans } from "@/components/marketing/TopInsurancePlans";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <TrustStrip />
       <HowItWorks />
       <FeaturedPlans />
+      <TopInsurancePlans />
       <HmoComparisonPreview />
       <ForHmoCta />
       <Footer />
