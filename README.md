@@ -234,5 +234,4 @@ component:
 
 ## License
 
-Proprietary — © 2026 [Your Company Name]. All rights reserved.#   n h i m - f r o n t e n d  
- 
+Proprietary — © 2026 [Your Company Name]. All rights reserved.
