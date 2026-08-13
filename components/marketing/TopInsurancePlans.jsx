@@ -80,11 +80,10 @@
 //   );
 // }
 
-
 "use client";
 
 import { motion } from "motion/react";
-import { SectionHeader } from "./SectionHeader";
+import { Heading } from "./Heading";
 import { TopInsurancePlansGrid } from "./TopInsurancePlansGrid";
 
 const FEATURED_PLANS = [
@@ -102,8 +101,7 @@ const FEATURED_PLANS = [
       reviewCount: 340,
       hospitalCount: 100,
       logoLetter: "L",
-      logoClass:
-        "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
+      logoClass: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
       verified: true,
       coverage: [
         "Basic health coverage",
@@ -318,7 +316,7 @@ export function TopInsurancePlans() {
       }}
       className="mx-auto w-full max-w-7xl overflow-hidden px-4 py-20 sm:px-6 sm:py-24"
     >
-      <SectionHeader
+      <Heading
         eyebrow="Featured plans"
         title="Find a health plan that fits your needs"
         description="Compare carefully selected healthcare plans from trusted HMO providers and find the right balance of coverage, price, and benefits."

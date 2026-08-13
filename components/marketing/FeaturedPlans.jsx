@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SectionHeader } from "./SectionHeader";
+import { Heading } from "./Heading";
 
 const HMO_PROVIDERS = [
   { name: "Leadway Health", logo: "L", color: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300" },
@@ -26,7 +26,7 @@ export function FeaturedPlans() {
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <SectionHeader
+        <Heading
           eyebrow="Our Partners"
           title="Trusted by top HMO providers"
           description="We partner with the best healthcare providers in Nigeria to bring you comprehensive coverage options."

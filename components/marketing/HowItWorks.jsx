@@ -1,12 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Search,
-  CreditCard,
-  Stethoscope,
-} from "lucide-react";
-import { SectionHeader } from "./SectionHeader";
+import { Search, CreditCard, Stethoscope } from "lucide-react";
+import { Heading } from "./Heading";
 
 const steps = [
   {
@@ -65,7 +61,7 @@ export function HowItWorks() {
       className="mx-auto max-w-6xl px-6 py-24"
     >
       {/* Header */}
-      <SectionHeader
+      <Heading
         eyebrow="Simple process"
         title="How the marketplace works"
         description="From comparing plans to receiving care at a hospital, everything happens in just three simple steps."
@@ -117,10 +113,7 @@ export function HowItWorks() {
                 }}
                 className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15 transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground"
               >
-                <Icon
-                  className="h-6 w-6"
-                  strokeWidth={2.25}
-                />
+                <Icon className="h-6 w-6" strokeWidth={2.25} />
               </motion.div>
 
               {/* Content */}

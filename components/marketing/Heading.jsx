@@ -14,7 +14,7 @@ const item = {
   },
 };
 
-export function SectionHeader({
+export function Heading({
   eyebrow,
   title,
   description,

@@ -3,10 +3,11 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/marketing/Hero";
 import { TrustStrip } from "@/components/marketing/TrustStrip";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
-import { HmoComparisonPreview } from "@/components/marketing/HmoComparisonPreview";
-import { ForHmoCta } from "@/components/marketing/ForHmoCta";
+// import { HmoComparisonPreview } from "@/components/marketing/HmoComparisonPreview";
+import { JoinNhim } from "@/components/marketing/JoinNhim";
 import { FeaturedPlans } from "@/components/marketing/FeaturedPlans";
 import { TopInsurancePlans } from "@/components/marketing/TopInsurancePlans";
+import { TestimonialsMarquee } from "@/components/marketing/Testimonial";
 
 export default function Home() {
   return (
@@ -17,8 +18,9 @@ export default function Home() {
       <HowItWorks />
       <FeaturedPlans />
       <TopInsurancePlans />
-      <HmoComparisonPreview />
-      <ForHmoCta />
+      <TestimonialsMarquee />
+      {/* <HmoComparisonPreview /> */}
+      <JoinNhim />
       <Footer />
     </>
   );
