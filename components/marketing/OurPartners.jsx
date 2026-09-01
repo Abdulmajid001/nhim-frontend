@@ -14,7 +14,7 @@ const HMO_PROVIDERS = [
   { name: "Clearline HMO", logo: "C", color: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300" },
 ];
 
-export function FeaturedPlans() {
+export function OurPartners() {
   // Duplicate the array to create a seamless loop
   const marqueeItems = [...HMO_PROVIDERS, ...HMO_PROVIDERS];
 

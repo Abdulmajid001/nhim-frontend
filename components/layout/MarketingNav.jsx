@@ -1,6 +1,6 @@
 "use client";
-
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, ShieldCheck } from "lucide-react";
 import { ModeToggle } from "../ui/mode-toggle";
@@ -14,6 +14,10 @@ const navLinks = [
 
 export function MarketingNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -34,7 +38,11 @@ export function MarketingNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                isActive(link.href)
+                  ? "bg-accent text-foreground"
+                  : "text-muted-foreground"
+              }`}
             >
               {link.label}
             </Link>
@@ -45,7 +53,7 @@ export function MarketingNav() {
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href="/login"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground border border-border"
+            className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             Log in
           </Link>
@@ -55,7 +63,7 @@ export function MarketingNav() {
           >
             Get covered
           </Link>
-        <ModeToggle />
+          <ModeToggle />
         </div>
 
         {/* Mobile toggle */}
@@ -76,10 +84,14 @@ export function MarketingNav() {
           <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-accent hover:text-accent-foreground ${
+                  isActive(link.href)
+                    ? "bg-accent text-foreground"
+                    : "text-muted-foreground"
+                }`}
               >
                 {link.label}
               </Link>
@@ -101,7 +113,6 @@ export function MarketingNav() {
               Get covered
             </Link>
           </div>
-            
         </div>
       )}
     </header>
