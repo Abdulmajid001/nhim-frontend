@@ -2,8 +2,6 @@ import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import { MarketingNav } from "@/components/layout/MarketingNav";
-import { Footer } from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,9 +37,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <MarketingNav />
           <TooltipProvider>{children}</TooltipProvider>
-          <Footer />
         </ThemeProvider>
       </body>
     </html>
