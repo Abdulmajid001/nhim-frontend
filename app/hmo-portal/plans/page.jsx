@@ -1,13 +1,163 @@
-export default function Page() {
+import Link from "next/link";
+import {
+  FileSpreadsheet,
+  Plus,
+  ShieldCheck,
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import { PlansClient } from "@/app/hmo-portal/plans/PlansClient";
+import { formatPrice } from "@/lib/utils";
+
+function StatCard({ label, value, detail, icon: Icon, tone }) {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16">
-      <p className="font-mono-data text-xs uppercase tracking-widest text-gold">
-        Route stub
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="flex items-start justify-between">
+        <p className="text-sm font-medium text-slate-500">{label}</p>
+        <span className={`rounded-xl p-2.5 ${tone}`}>
+          <Icon className="h-4 w-4" />
+        </span>
+      </div>
+      <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
+        {value}
       </p>
-      <h1 className="mt-2 font-display text-3xl text-ink">Manage Plans</h1>
-      <p className="mt-3 text-graphite">
-        Build this page next — see PAGES.md for the section-by-section spec.
-      </p>
-    </main>
+      <p className="mt-1 text-xs text-slate-500">{detail}</p>
+    </div>
+  );
+}
+
+const HMO_PLANS = [
+  {
+    id: "gold-care-plus",
+    name: "Gold Care Plus",
+    tier: "Premium",
+    status: "Active",
+    priceAnnual: 640000,
+    enrollees: 6230,
+    hospitalsCount: 184,
+    description: "Comprehensive coverage with private wards, international emergency, and full maternity care.",
+    coverage: ["Outpatient", "Inpatient", "Maternity", "Surgery", "Dental", "Optical"],
+  },
+  {
+    id: "silver-family",
+    name: "Silver Family",
+    tier: "Standard",
+    status: "Active",
+    priceAnnual: 380000,
+    enrollees: 4600,
+    hospitalsCount: 142,
+    description: "Ideal family coverage offering secondary specialist care, pediatric care, and semi-private rooms.",
+    coverage: ["Outpatient", "Inpatient", "Maternity", "Emergency"],
+  },
+  {
+    id: "bronze-basic",
+    name: "Bronze Basic",
+    tier: "Basic",
+    status: "Active",
+    priceAnnual: 180000,
+    enrollees: 2670,
+    hospitalsCount: 96,
+    description: "Essential primary healthcare covering consultations, emergency stabilization, and diagnostics.",
+    coverage: ["Outpatient", "Emergency", "Basic Labs"],
+  },
+  {
+    id: "corporate-platinum",
+    name: "Corporate Platinum",
+    tier: "Enterprise",
+    status: "Active",
+    priceAnnual: 920000,
+    enrollees: 1350,
+    hospitalsCount: 220,
+    description: "Executive group healthcare tier with zero co-pays and VIP hospital access.",
+    coverage: ["Executive Health", "Inpatient", "Maternity", "Surgery", "Dental", "Optical", "Wellness"],
+  },
+  {
+    id: "student-starter",
+    name: "Student Starter",
+    tier: "Basic",
+    status: "Draft",
+    priceAnnual: 95000,
+    enrollees: 0,
+    hospitalsCount: 65,
+    description: "Affordable youth and tertiary student healthcare plan with campus partner clinics.",
+    coverage: ["Outpatient", "Emergency", "Prescriptions"],
+  },
+  {
+    id: "senior-shield",
+    name: "Senior Shield 65+",
+    tier: "Specialized",
+    status: "Draft",
+    priceAnnual: 750000,
+    enrollees: 0,
+    hospitalsCount: 110,
+    description: "Specialized geriatric healthcare plan covering chronic illness management and home visits.",
+    coverage: ["Chronic Care", "Inpatient", "Specialist Visits", "Physiotherapy"],
+  },
+];
+
+export default async function HmoPlansPage() {
+  const activeCount = HMO_PLANS.filter((p) => p.status === "Active").length;
+  const totalEnrollees = HMO_PLANS.reduce((sum, p) => sum + p.enrollees, 0);
+
+  return (
+    <div className="mx-auto max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
+      {/* Header */}
+      <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p className="text-sm font-medium text-slate-500">Plan Management</p>
+          <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Insurance Plans
+          </h1>
+          <p className="mt-1 text-sm text-slate-500">
+            Create, edit, and manage health insurance tiers published on the NHIM marketplace.
+          </p>
+        </div>
+
+        <Link
+          href="/hmo-portal/plans/new"
+          className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800"
+        >
+          <Plus className="h-4 w-4" />
+          <span>Create New Plan</span>
+        </Link>
+      </header>
+
+      {/* Stats Cards */}
+      {/* <section className="mt-8 grid gap-4 grid-cols-2 md:grid-cols-4">
+        <StatCard
+          label="Total Plans"
+          value={`${HMO_PLANS.length} Plans`}
+          detail="All configured tiers"
+          icon={FileSpreadsheet}
+          tone="bg-slate-100 text-slate-700"
+        />
+        <StatCard
+          label="Marketplace Active"
+          value={`${activeCount} Active`}
+          detail="Open for public purchase"
+          icon={ShieldCheck}
+          tone="bg-emerald-100 text-emerald-700"
+        />
+        <StatCard
+          label="Total Plan Enrollees"
+          value={totalEnrollees.toLocaleString()}
+          detail="Across active policies"
+          icon={Users}
+          tone="bg-blue-100 text-blue-700"
+        />
+        <StatCard
+          label="Average Annual Price"
+          value={formatPrice(494000)}
+          detail="Competitive market rate"
+          icon={TrendingUp}
+          tone="bg-violet-100 text-violet-700"
+        />
+      </section> */}
+
+      {/* Interactive Plans Table / Grid */}
+      <section className="mt-8">
+        <PlansClient initialPlans={HMO_PLANS} />
+      </section>
+    </div>
   );
 }
