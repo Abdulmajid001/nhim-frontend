@@ -31,7 +31,7 @@ export default function IdCardContent() {
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
-      <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <header className="flex flex-col justify-between gap-4 rounded-[28px] border border-border bg-linear-to-r from-primary/8 via-card to-accent/60 p-6 shadow-sm sm:flex-row sm:items-end dark:from-primary/12 dark:via-card dark:to-accent/20">
         <div>
           <p className="text-sm font-medium text-primary">Your membership</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -44,7 +44,7 @@ export default function IdCardContent() {
         <button
           type="button"
           onClick={printCard}
-          className="inline-flex items-center justify-center gap-2 self-start rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-muted sm:self-auto"
+          className="inline-flex items-center justify-center gap-2 self-start rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted sm:self-auto"
         >
           <Download className="h-4 w-4" />
           Print or save card
@@ -52,7 +52,7 @@ export default function IdCardContent() {
       </header>
 
       <section className="mt-8 grid gap-6 lg:grid-cols-[1fr_0.62fr]">
-        <div className="id-card-printable relative overflow-hidden rounded-3xl bg-[#123b52] p-6 text-white shadow-xl sm:p-8">
+        <div className="id-card-printable relative overflow-hidden rounded-3xl bg-linear-to-r from-[#103958] via-[#163d57] to-[#0e2d44] p-6 text-white shadow-xl sm:p-8">
           <div className="absolute -right-16 -top-20 h-60 w-60 rounded-full border-28 border-white/5" />
           <div className="relative flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -114,7 +114,7 @@ export default function IdCardContent() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-border bg-background p-6 sm:p-8">
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
           <h2 className="font-bold text-foreground">Need help?</h2>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             Our care team can help confirm your cover before you visit a
@@ -147,7 +147,7 @@ export default function IdCardContent() {
         </div>
       </section>
       <p className="mt-5 flex items-center gap-2 text-xs text-muted-foreground">
-        <ShieldCheck className="h-4 w-4 text-[#16805a]" />
+        <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
         Your membership is active and your details are verified.
       </p>
     </div>

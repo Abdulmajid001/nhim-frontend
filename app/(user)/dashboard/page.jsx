@@ -13,17 +13,17 @@ import { formatPrice } from "@/lib/utils";
 
 function StatCard({ label, value, detail, icon: Icon, tone }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="flex items-start justify-between">
-        <p className="text-sm text-slate-500">{label}</p>
-        <span className={`rounded-xl p-2.5 ${tone}`}>
+    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
+      <div className="flex items-start justify-between gap-3">
+        <p className="text-sm text-muted-foreground">{label}</p>
+        <span className={`inline-flex rounded-xl p-2.5 ${tone}`}>
           <Icon className="h-4 w-4" />
         </span>
       </div>
-      <p className="mt-5 text-2xl font-bold tracking-tight text-slate-900">
+      <p className="mt-5 text-2xl font-bold tracking-tight text-foreground">
         {value}
       </p>
-      <p className="mt-1 text-xs text-slate-500">{detail}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{detail}</p>
     </div>
   );
 }
@@ -72,29 +72,16 @@ export default function DashboardOverviewPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
-      <header className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <header className="flex flex-col justify-between gap-5 rounded-[28px] border border-border bg-linear-to-r from-primary/8 via-card to-accent/60 p-6 shadow-sm sm:flex-row sm:items-end dark:from-primary/12 dark:via-card dark:to-accent/20">
         <div>
           <p className="text-sm font-medium text-primary">{formattedDate}</p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Good morning, {member.firstName}
           </h1>
-          <p className="mt-2 text-sm text-slate-500">
+          <p className="mt-2 text-sm text-muted-foreground">
             Here is the latest on your health cover.
           </p>
         </div>
-
-        {/* <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">
-            {member.firstName.slice(0, 1)}
-            {member.lastName.slice(0, 1)}
-          </span>
-          <div className="pr-2">
-            <p className="text-sm font-semibold text-slate-900">
-              {member.firstName} {member.lastName}
-            </p>
-            <p className="text-xs text-slate-500">Member since 2025</p>
-          </div>
-        </div> */}
       </header>
 
       <section className="mt-8 grid gap-4 grid-cols-2 md:grid-cols-4">
@@ -103,33 +90,33 @@ export default function DashboardOverviewPage() {
           value="Active"
           detail={`Renews ${member.renewsOn}`}
           icon={CheckCircle2}
-          tone="bg-emerald-100 text-emerald-700"
+          tone="bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300"
         />
         <StatCard
           label="Claims this year"
           value={`${member.claimsUsed} of ${member.claimsTotal}`}
           detail="Claims allowance used"
           icon={FileText}
-          tone="bg-blue-100 text-blue-700"
+          tone="bg-primary/10 text-primary dark:bg-primary/15 dark:text-primary"
         />
         <StatCard
           label="Covered people"
           value={member.dependants + 1}
           detail="You and your beneficiaries"
           icon={Users}
-          tone="bg-amber-100 text-amber-700"
+          tone="bg-amber-500/10 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300"
         />
         <StatCard
           label="Outstanding balance"
           value={formatPrice(member.balance)}
           detail="Your account is up to date"
           icon={CalendarDays}
-          tone="bg-violet-100 text-violet-700"
+          tone="bg-violet-500/10 text-violet-700 dark:bg-violet-500/15 dark:text-violet-300"
         />
       </section>
 
       <section className="mt-6 grid gap-6 xl:grid-cols-[1.35fr_0.65fr]">
-        <div className="overflow-hidden rounded-3xl bg-[#123b52] p-6 text-white sm:p-8">
+        <div className="overflow-hidden rounded-3xl bg-linear-to-r from-[#103958] via-[#163d57] to-[#0e2d44] p-6 text-white shadow-sm sm:p-8">
           <div className="flex flex-col justify-between gap-8 sm:flex-row">
             <div>
               <p className="text-sm font-medium text-[#9fd9c3]">
@@ -171,25 +158,25 @@ export default function DashboardOverviewPage() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
           <div className="flex items-center justify-between">
-            <h2 className="font-bold text-slate-900">Claims allowance</h2>
+            <h2 className="font-bold text-foreground">Claims allowance</h2>
             <FileText className="h-5 w-5 text-primary" />
           </div>
-          <p className="mt-7 text-4xl font-bold tracking-tight text-slate-900">
+          <p className="mt-7 text-4xl font-bold tracking-tight text-foreground">
             {member.claimsUsed}
-            <span className="text-lg font-medium text-slate-500">
+            <span className="text-lg font-medium text-muted-foreground">
               {" "}
               / {member.claimsTotal}
             </span>
           </p>
-          <div className="mt-5 h-2 rounded-full bg-slate-200">
+          <div className="mt-5 h-2 rounded-full bg-muted">
             <div
               className="h-2 rounded-full bg-primary"
               style={{ width: `${claimProgress}%` }}
             />
           </div>
-          <p className="mt-3 text-sm text-slate-500">
+          <p className="mt-3 text-sm text-muted-foreground">
             {member.claimsTotal - member.claimsUsed} claims remaining this
             policy year.
           </p>
@@ -203,11 +190,11 @@ export default function DashboardOverviewPage() {
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="flex items-center justify-between">
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div className="flex items-center justify-between gap-3">
             <div>
-              <h2 className="font-bold text-slate-900">Recent claims</h2>
-              <p className="mt-1 text-sm text-slate-500">
+              <h2 className="font-bold text-foreground">Recent claims</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
                 A quick look at your latest activity
               </p>
             </div>
@@ -219,21 +206,21 @@ export default function DashboardOverviewPage() {
             </Link>
           </div>
 
-          <div className="mt-6 divide-y divide-slate-200">
+          <div className="mt-6 divide-y divide-border">
             {member.recentClaims.map((claim) => (
               <div
                 key={`${claim.type}-${claim.date}`}
                 className="flex items-center justify-between gap-3 py-4 first:pt-0 last:pb-0"
               >
                 <div className="flex min-w-0 items-center gap-3">
-                  <span className="rounded-xl bg-slate-100 p-2.5 text-primary">
+                  <span className="rounded-xl bg-muted p-2.5 text-primary">
                     <FileText className="h-4 w-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold text-slate-900">
+                    <p className="truncate text-sm font-semibold text-foreground">
                       {claim.type}
                     </p>
-                    <p className="mt-1 flex items-center gap-1 text-xs text-slate-500">
+                    <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
                       <Clock3 className="h-3 w-3" />
                       {claim.date}
                     </p>
@@ -241,11 +228,11 @@ export default function DashboardOverviewPage() {
                 </div>
 
                 <div className="text-right">
-                  <p className="text-sm font-semibold text-slate-900">
+                  <p className="text-sm font-semibold text-foreground">
                     {formatPrice(claim.amount)}
                   </p>
                   <p
-                    className={`mt-1 text-xs font-medium ${claim.status === "Approved" ? "text-emerald-600" : "text-amber-600"}`}
+                    className={`mt-1 text-xs font-medium ${claim.status === "Approved" ? "text-emerald-600 dark:text-emerald-400" : "text-amber-600 dark:text-amber-400"}`}
                   >
                     {claim.status}
                   </p>
@@ -255,12 +242,12 @@ export default function DashboardOverviewPage() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <h2 className="font-bold text-slate-900">Quick actions</h2>
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <h2 className="font-bold text-foreground">Quick actions</h2>
           <div className="mt-5 grid gap-2">
             <Link
               href="/dashboard/id-card"
-              className="flex items-center justify-between rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:bg-primary/10 hover:text-primary"
+              className="flex items-center justify-between rounded-xl bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-primary/10 hover:text-primary"
             >
               <span className="flex items-center gap-3">
                 <IdCard className="h-4 w-4" />
@@ -270,23 +257,23 @@ export default function DashboardOverviewPage() {
             </Link>
             <Link
               href="/dashboard/beneficiaries"
-              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-100"
+              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-foreground transition hover:bg-muted"
             >
               <span className="flex items-center gap-3">
                 <Users className="h-4 w-4" />
                 Manage beneficiaries
               </span>
-              <ChevronRight className="h-4 w-4 text-slate-400" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </Link>
             <Link
               href="/dashboard/claims"
-              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-100"
+              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-foreground transition hover:bg-muted"
             >
               <span className="flex items-center gap-3">
                 <FileText className="h-4 w-4" />
                 Submit a claim
               </span>
-              <ChevronRight className="h-4 w-4 text-slate-400" />
+              <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </Link>
           </div>
         </div>

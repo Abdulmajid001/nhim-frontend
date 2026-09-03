@@ -16,9 +16,21 @@ import { getMemberDashboard } from "@/lib/api/member";
 import { formatPrice } from "@/lib/utils";
 
 const statusConfig = {
-  Approved: { icon: CheckCircle2, className: "bg-[#e1f7ed] text-[#16805a]" },
-  Processing: { icon: Clock3, className: "bg-[#fff2d9] text-[#a66a00]" },
-  Declined: { icon: XCircle, className: "bg-red-50 text-red-600" },
+  Approved: {
+    icon: CheckCircle2,
+    className:
+      "bg-emerald-500/10 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300",
+  },
+  Processing: {
+    icon: Clock3,
+    className:
+      "bg-amber-500/10 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300",
+  },
+  Declined: {
+    icon: XCircle,
+    className:
+      "bg-red-500/10 text-red-700 dark:bg-red-500/15 dark:text-red-300",
+  },
 };
 
 export default function ClaimsContent() {
@@ -47,7 +59,7 @@ export default function ClaimsContent() {
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
-      <header className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <header className="flex flex-col justify-between gap-5 rounded-[28px] border border-border bg-linear-to-r from-primary/8 via-card to-accent/60 p-6 shadow-sm sm:flex-row sm:items-end dark:from-primary/12 dark:via-card dark:to-accent/20">
         <div>
           <p className="text-sm font-medium text-primary">
             Reimbursements and care
@@ -61,21 +73,22 @@ export default function ClaimsContent() {
         </div>
         <button
           type="button"
-          className="inline-flex items-center justify-center gap-2 self-start rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 sm:self-auto"
+          className="inline-flex items-center justify-center gap-2 self-start rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90 sm:self-auto"
         >
           <Plus className="h-4 w-4" />
           Submit a claim
         </button>
       </header>
+
       <section className="mt-8 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-border bg-background p-5">
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <p className="text-sm text-muted-foreground">Total claims</p>
           <p className="mt-4 text-2xl font-bold text-foreground">
             {member.claims.length}
           </p>
           <p className="mt-1 text-xs text-muted-foreground">This policy year</p>
         </div>
-        <div className="rounded-2xl border border-border bg-background p-5">
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <p className="text-sm text-muted-foreground">Approved amount</p>
           <p className="mt-4 text-2xl font-bold text-foreground">
             {formatPrice(
@@ -86,7 +99,7 @@ export default function ClaimsContent() {
           </p>
           <p className="mt-1 text-xs text-muted-foreground">Paid or approved</p>
         </div>
-        <div className="rounded-2xl border border-border bg-background p-5">
+        <div className="rounded-2xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <p className="text-sm text-muted-foreground">Available allowance</p>
           <p className="mt-4 text-2xl font-bold text-foreground">
             {member.claimsTotal - member.claimsUsed}
@@ -94,7 +107,8 @@ export default function ClaimsContent() {
           <p className="mt-1 text-xs text-muted-foreground">Claims remaining</p>
         </div>
       </section>
-      <section className="mt-6 rounded-3xl border border-border bg-background p-5 sm:p-8">
+
+      <section className="mt-6 rounded-3xl border border-border bg-card p-5 shadow-sm sm:p-8">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-2 overflow-x-auto pb-1">
             {statuses.map((status) => (
@@ -102,13 +116,13 @@ export default function ClaimsContent() {
                 key={status}
                 type="button"
                 onClick={() => setFilter(status)}
-                className={`whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold ${filter === status ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
+                className={`whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-semibold transition ${filter === status ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-muted"}`}
               >
                 {status}
               </button>
             ))}
           </div>
-          <label className="flex items-center gap-2 rounded-xl border border-border px-3 py-2 text-sm text-muted-foreground lg:w-64">
+          <label className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2 text-sm text-muted-foreground lg:w-64">
             <Search className="h-4 w-4 shrink-0" />
             <input
               value={search}
@@ -118,6 +132,7 @@ export default function ClaimsContent() {
             />
           </label>
         </div>
+
         <div className="mt-6 divide-y divide-border">
           {visibleClaims.length === 0 ? (
             <div className="py-10 text-center text-sm text-muted-foreground">
@@ -163,7 +178,7 @@ export default function ClaimsContent() {
                     <Link
                       href={`/dashboard/claims/${claim.id}`}
                       aria-label={`View ${claim.id}`}
-                      className="rounded-lg p-2 text-muted-foreground hover:bg-muted hover:text-foreground"
+                      className="rounded-lg p-2 text-muted-foreground transition hover:bg-muted hover:text-foreground"
                     >
                       <ChevronRight className="h-5 w-5" />
                     </Link>
@@ -174,6 +189,7 @@ export default function ClaimsContent() {
           )}
         </div>
       </section>
+
       <Link
         href="/dashboard/plan"
         className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"

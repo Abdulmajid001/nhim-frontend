@@ -16,11 +16,11 @@ import { getMemberDashboard } from "@/lib/api/member";
 import Link from "next/link";
 
 const inputClass =
-  "mt-2 w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:border-primary";
+  "mt-2 w-full rounded-xl border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-ring/20";
 
 function Preference({ title, description, checked, onChange }) {
   return (
-    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-xl border border-border p-4 hover:bg-muted/40">
+    <label className="flex cursor-pointer items-start justify-between gap-4 rounded-xl border border-border bg-background p-4 transition hover:bg-muted/40">
       <span>
         <span className="block text-sm font-semibold text-foreground">
           {title}
@@ -39,7 +39,7 @@ function Preference({ title, description, checked, onChange }) {
         className={`relative mt-0.5 h-6 w-11 shrink-0 rounded-full transition-colors ${checked ? "bg-primary" : "bg-muted"}`}
       >
         <span
-          className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${checked ? "translate-x-6" : "translate-x-1"}`}
+          className={`absolute top-1 h-4 w-4 rounded-full bg-primary-foreground shadow-sm transition-transform ${checked ? "translate-x-6" : "translate-x-1"}`}
         />
       </span>
     </label>
@@ -104,7 +104,7 @@ export default function SettingsContent() {
       </header>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
-        <aside className="h-fit rounded-3xl border border-border bg-background p-5">
+        <aside className="h-fit rounded-3xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
           <div className="flex items-center gap-3 border-b border-border pb-5">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent font-bold text-primary">
               {profile.firstName[0]}
@@ -122,7 +122,7 @@ export default function SettingsContent() {
           <nav className="mt-4 space-y-1">
             <Link
               href="#profile"
-              className="flex items-center justify-between rounded-xl bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground"
+              className="flex items-center justify-between rounded-xl bg-accent px-3 py-2.5 text-sm font-semibold text-accent-foreground transition"
             >
               <span className="flex items-center gap-3">
                 <UserRound className="h-4 w-4" />
@@ -132,25 +132,25 @@ export default function SettingsContent() {
             </Link>
             <Link
               href="#notifications"
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <Mail className="h-4 w-4" />
               Notifications
             </Link>
             <Link
               href="#security"
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted"
+              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground"
             >
               <LockKeyhole className="h-4 w-4" />
               Security
             </Link>
           </nav>
-          <div className="mt-6 rounded-2xl bg-[#f2fbf7] p-4">
-            <ShieldCheck className="h-5 w-5 text-[#16805a]" />
-            <p className="mt-3 text-sm font-semibold text-[#286750]">
+          <div className="mt-6 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4 dark:bg-emerald-500/15">
+            <ShieldCheck className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
+            <p className="mt-3 text-sm font-semibold text-emerald-800 dark:text-emerald-200">
               Your account is protected
             </p>
-            <p className="mt-1 text-xs leading-5 text-[#4e826d]">
+            <p className="mt-1 text-xs leading-5 text-emerald-700 dark:text-emerald-300">
               Your profile is verified and linked to policy{" "}
               {member.policyNumber}.
             </p>
@@ -161,7 +161,7 @@ export default function SettingsContent() {
           <form
             id="profile"
             onSubmit={saveProfile}
-            className="scroll-mt-6 rounded-3xl border border-border bg-background p-6 sm:p-8"
+            className="scroll-mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm ring-1 ring-black/5 dark:ring-white/5 sm:p-8"
           >
             <div className="flex items-start justify-between gap-3 border-b border-border pb-5">
               <div>
@@ -211,14 +211,14 @@ export default function SettingsContent() {
               </label>
             </div>
             {saved && (
-              <p className="mt-4 flex items-center gap-2 text-sm font-medium text-[#16805a]">
+              <p className="mt-4 flex items-center gap-2 text-sm font-medium text-emerald-700 dark:text-emerald-300">
                 <CheckCircle2 className="h-4 w-4" />
                 Profile details saved for this session.
               </p>
             )}
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
             >
               <Save className="h-4 w-4" />
               Save changes
@@ -227,7 +227,7 @@ export default function SettingsContent() {
 
           <section
             id="notifications"
-            className="scroll-mt-6 rounded-3xl border border-border bg-background p-6 sm:p-8"
+            className="scroll-mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm ring-1 ring-black/5 dark:ring-white/5 sm:p-8"
           >
             <div className="flex items-start justify-between gap-3 border-b border-border pb-5">
               <div>
@@ -275,7 +275,7 @@ export default function SettingsContent() {
           <form
             id="security"
             onSubmit={savePassword}
-            className="scroll-mt-6 rounded-3xl border border-border bg-background p-6 sm:p-8"
+            className="scroll-mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm ring-1 ring-black/5 dark:ring-white/5 sm:p-8"
           >
             <div className="flex items-start justify-between gap-3 border-b border-border pb-5">
               <div>
@@ -311,14 +311,14 @@ export default function SettingsContent() {
               </label>
             </div>
             {passwordSaved && (
-              <p className="mt-4 flex items-center gap-2 text-sm font-medium text-[#16805a]">
+              <p className="mt-4 flex items-center gap-2 text-sm font-medium text-emerald-700 dark:text-emerald-300">
                 <Check className="h-4 w-4" />
                 Password update requested.
               </p>
             )}
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-muted"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted"
             >
               <KeyRound className="h-4 w-4" />
               Update password

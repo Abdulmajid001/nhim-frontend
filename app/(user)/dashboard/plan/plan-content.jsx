@@ -40,7 +40,7 @@ export default function MyPlanContent() {
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
-      <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <header className="flex flex-col justify-between gap-4 rounded-[28px] border border-border bg-linear-to-r from-primary/8 via-card to-accent/60 p-6 shadow-sm sm:flex-row sm:items-end dark:from-primary/12 dark:via-card dark:to-accent/20">
         <div>
           <p className="text-sm font-medium text-primary">Membership</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -52,14 +52,14 @@ export default function MyPlanContent() {
         </div>
         <button
           type="button"
-          className="inline-flex items-center justify-center gap-2 self-start rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-muted sm:self-auto"
+          className="inline-flex items-center justify-center gap-2 self-start rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition hover:bg-muted sm:self-auto"
         >
           <Download className="h-4 w-4" />
           Download details
         </button>
       </header>
 
-      <section className="mt-8 overflow-hidden rounded-3xl bg-[#123b52] text-white">
+      <section className="mt-8 overflow-hidden rounded-3xl bg-linear-to-r from-[#103958] via-[#163d57] to-[#0e2d44] text-white shadow-sm">
         <div className="grid gap-8 p-6 sm:p-9 lg:grid-cols-[1fr_auto] lg:p-10">
           <div>
             <div className="flex items-center gap-2 text-sm font-medium text-[#9fd9c3]">
@@ -81,7 +81,7 @@ export default function MyPlanContent() {
               </div>
             </div>
           </div>
-          <div className="min-w-64 rounded-2xl bg-white/10 p-5">
+          <div className="min-w-64 rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
             <p className="text-sm text-[#c4d7df]">Your premium</p>
             <p className="mt-3 text-3xl font-bold">
               {formatPrice(monthlyPrice)}
@@ -95,7 +95,7 @@ export default function MyPlanContent() {
             </p>
             <Link
               href="/dashboard/id-card"
-              className="mt-7 flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-[#123b52]"
+              className="mt-7 flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-[#123b52] transition hover:-translate-y-0.5"
             >
               View ID card <ArrowRight className="h-4 w-4" />
             </Link>
@@ -104,7 +104,7 @@ export default function MyPlanContent() {
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-[1fr_0.8fr]">
-        <div className="rounded-3xl border border-border bg-background p-6 sm:p-8">
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-bold text-foreground">What is covered</h2>
@@ -118,9 +118,9 @@ export default function MyPlanContent() {
             {plan.coverage.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-xl bg-[#f5faf8] px-4 py-3 text-sm font-medium text-foreground"
+                className="flex items-center gap-3 rounded-xl bg-accent/60 px-4 py-3 text-sm font-medium text-foreground dark:bg-accent/40"
               >
-                <span className="rounded-full bg-[#d9f3ea] p-1 text-[#16805a]">
+                <span className="rounded-full bg-emerald-500/10 p-1 text-emerald-700 dark:text-emerald-300">
                   <Check className="h-3 w-3" />
                 </span>
                 {item} care
@@ -128,7 +128,7 @@ export default function MyPlanContent() {
             ))}
           </div>
         </div>
-        <div className="rounded-3xl border border-border bg-background p-6 sm:p-8">
+        <div className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-bold text-foreground">Your household</h2>
@@ -143,7 +143,7 @@ export default function MyPlanContent() {
               AO
             </span>
             <div>
-              <p className="text-sm font-semibold">
+              <p className="text-sm font-semibold text-foreground">
                 {member.firstName} {member.lastName}
               </p>
               <p className="text-xs text-muted-foreground">Primary member</p>
@@ -157,14 +157,14 @@ export default function MyPlanContent() {
           </div>
           <Link
             href="/dashboard/beneficiaries"
-            className="mt-5 flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+            className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
           >
             Manage household <ChevronRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
 
-      <section className="mt-6 rounded-3xl border border-border bg-background p-6 sm:p-8">
+      <section className="mt-6 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8">
         <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <h2 className="font-bold text-foreground">Partner hospitals</h2>
@@ -181,7 +181,7 @@ export default function MyPlanContent() {
           {hospitals.map((hospital) => (
             <div
               key={hospital}
-              className="flex items-center gap-3 rounded-xl border border-border px-4 py-3"
+              className="flex items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 shadow-sm"
             >
               <span className="rounded-lg bg-accent p-2 text-primary">
                 <Building2 className="h-4 w-4" />

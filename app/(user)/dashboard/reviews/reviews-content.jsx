@@ -48,20 +48,20 @@ export default function ReviewsContent() {
         </p>
       </header>
       <section className="mt-8 grid gap-6 lg:grid-cols-[0.78fr_1.22fr]">
-        <div className="rounded-3xl bg-[#123b52] p-6 text-white sm:p-8">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10">
-            <MessageSquare className="h-5 w-5 text-[#9fd9c3]" />
+        <div className="rounded-3xl border border-border bg-linear-to-br from-primary/10 via-card to-accent/60 p-6 text-foreground shadow-sm sm:p-8 dark:from-primary/12 dark:via-card dark:to-accent/20">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <MessageSquare className="h-5 w-5" />
           </div>
           <h2 className="mt-6 text-2xl font-bold tracking-tight">
             Your feedback improves care
           </h2>
-          <p className="mt-3 text-sm leading-6 text-[#c4d7df]">
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">
             Reviews help the NHIM community find reliable hospitals and services
             within their network.
           </p>
-          <div className="mt-8 flex items-center gap-3 border-t border-white/15 pt-5">
+          <div className="mt-8 flex items-center gap-3 border-t border-border pt-5">
             <span className="text-3xl font-bold">{member.reviews.length}</span>
-            <span className="text-sm text-[#c4d7df]">
+            <span className="text-sm text-muted-foreground">
               reviews shared
               <br />
               with the community
@@ -70,7 +70,7 @@ export default function ReviewsContent() {
         </div>
         <form
           onSubmit={submitReview}
-          className="rounded-3xl border border-border bg-background p-6 sm:p-8"
+          className="rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-8"
         >
           <div className="flex items-start justify-between gap-3">
             <div>
@@ -79,10 +79,10 @@ export default function ReviewsContent() {
                 Tell us about a recent care experience.
               </p>
             </div>
-            <Star className="h-5 w-5 text-[#f59e0b]" />
+            <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
           </div>
           {submitted && (
-            <div className="mt-5 flex items-center gap-2 rounded-xl bg-[#e1f7ed] px-3 py-2.5 text-sm font-medium text-[#16805a]">
+            <div className="mt-5 flex items-center gap-2 rounded-xl bg-emerald-500/10 px-3 py-2.5 text-sm font-medium text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300">
               <CheckCircle2 className="h-4 w-4" />
               Thanks, your review is awaiting moderation.
             </div>
@@ -98,10 +98,10 @@ export default function ReviewsContent() {
                   type="button"
                   aria-label={`${value} star${value > 1 ? "s" : ""}`}
                   onClick={() => setRating(value)}
-                  className="rounded-lg p-1 hover:bg-[#fff2d9]"
+                  className="rounded-lg p-1 transition hover:bg-accent"
                 >
                   <Star
-                    className={`h-7 w-7 ${value <= rating ? "fill-[#f59e0b] text-[#f59e0b]" : "text-muted"}`}
+                    className={`h-7 w-7 ${value <= rating ? "fill-amber-400 text-amber-400" : "text-muted-foreground/60"}`}
                   />
                 </button>
               ))}
@@ -115,7 +115,7 @@ export default function ReviewsContent() {
               onChange={(event) => setComment(event.target.value)}
               rows="4"
               placeholder="What went well? What could be better?"
-              className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3 py-3 text-sm font-normal outline-none focus:border-primary"
+              className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3 py-3 text-sm font-normal text-foreground outline-none placeholder:text-muted-foreground/70 focus:border-primary"
             />
           </label>
           <button
@@ -148,7 +148,7 @@ export default function ReviewsContent() {
           {member.reviews.map((review) => (
             <article
               key={review.id}
-              className="rounded-2xl border border-border p-5"
+              className="rounded-2xl border border-border bg-card p-5 shadow-sm ring-1 ring-black/5 dark:ring-white/5"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -161,7 +161,7 @@ export default function ReviewsContent() {
                 </div>
                 <div className="flex items-center gap-1 text-sm font-semibold text-foreground">
                   {review.rating}.0{" "}
-                  <Star className="h-4 w-4 fill-[#f59e0b] text-[#f59e0b]" />
+                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
                 </div>
               </div>
               <p className="mt-4 text-sm leading-6 text-muted-foreground">

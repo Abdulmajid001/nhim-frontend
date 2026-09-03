@@ -2,17 +2,14 @@ import { UserDashboardSidebar } from "@/components/layout/UserDashboardSidebar";
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col lg:flex-row">
+    <div className="flex min-h-screen flex-col bg-background text-foreground lg:flex-row">
       {/* Sticky Desktop Sidebar & Mobile Header */}
-      <div className="lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:shrink-0 z-30">
+      <div className="z-30 lg:sticky lg:top-0 lg:h-screen lg:w-72 lg:shrink-0">
         <UserDashboardSidebar />
       </div>
 
-      {/* Main Content Area that scrolls independently */}
-      <main className="flex-1 min-w-0 pt-16 lg:pt-0">
-        {children}
-      </main>
+      {/* Main Content Area */}
+      <main className="min-w-0 flex-1 pt-16 lg:pt-0">{children}</main>
     </div>
   );
 }
-

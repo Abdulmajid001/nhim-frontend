@@ -47,7 +47,7 @@ export function UserDashboardSidebar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-background/90 backdrop-blur-xl lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-sidebar-border bg-sidebar/95 backdrop-blur-xl lg:hidden">
         <div className="flex items-center justify-between px-4 py-3">
           <Link
             href="/dashboard"
@@ -57,7 +57,7 @@ export function UserDashboardSidebar() {
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
               <ShieldCheck className="h-4 w-4" />
             </span>
-            <span className="text-base font-semibold tracking-tight text-foreground">
+            <span className="text-base font-semibold tracking-tight text-sidebar-foreground">
               NHIM
             </span>
           </Link>
@@ -67,7 +67,7 @@ export function UserDashboardSidebar() {
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen((value) => !value)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-muted text-foreground transition hover:bg-accent"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-sidebar-border bg-sidebar-accent text-sidebar-accent-foreground transition hover:bg-accent"
           >
             {isMobileMenuOpen ? (
               <X className="h-5 w-5" />
@@ -78,7 +78,7 @@ export function UserDashboardSidebar() {
         </div>
 
         {isMobileMenuOpen ? (
-          <div className="border-t border-border bg-background px-4 py-3">
+          <div className="border-t border-sidebar-border bg-sidebar px-4 py-3">
             <nav className="flex flex-col gap-1">
               {userDashboardNav.map((item) => {
                 const Icon = iconMap[item.href] || LayoutDashboard;
@@ -91,8 +91,8 @@ export function UserDashboardSidebar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={
                       (active
-                        ? "bg-primary text-primary-foreground shadow-sm"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground") +
+                        ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm"
+                        : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground") +
                       " flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors"
                     }
                   >
@@ -106,17 +106,17 @@ export function UserDashboardSidebar() {
         ) : null}
       </header>
 
-      <aside className="hidden border-b border-border bg-sidebar text-sidebar-foreground lg:block lg:h-screen lg:w-72 lg:border-b-0 lg:border-r lg:overflow-y-auto">
+      <aside className="hidden border-b border-sidebar-border bg-sidebar lg:block lg:h-screen lg:w-72 lg:border-b-0 lg:border-r lg:overflow-y-auto">
         <div className="p-5">
-          <div className="mb-6 flex items-center gap-3 rounded-2xl border border-sidebar-border bg-sidebar-accent p-3">
+          <div className="mb-6 flex items-center gap-3 p-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
               <ShieldCheck className="h-5 w-5" />
             </span>
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-muted-foreground">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-sidebar-foreground/60">
                 Member portal
               </p>
-              <p className="text-lg font-semibold tracking-tight text-foreground">
+              <p className="text-lg font-semibold tracking-tight text-sidebar-foreground">
                 NHIM<span className="text-primary">.ng</span>
               </p>
             </div>
@@ -133,8 +133,8 @@ export function UserDashboardSidebar() {
                   href={item.href}
                   className={
                     (active
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground") +
+                      ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-sm"
+                      : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground") +
                     " flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors"
                   }
                 >
@@ -149,5 +149,3 @@ export function UserDashboardSidebar() {
     </>
   );
 }
-
-
