@@ -11,17 +11,17 @@ import { HospitalsClient } from "@/app/hmo-portal/hospitals/HospitalsClient";
 
 function StatCard({ label, value, detail, icon: Icon, tone }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-border bg-card p-5 shadow-sm">
       <div className="flex items-start justify-between">
-        <p className="text-sm font-medium text-slate-500">{label}</p>
+        <p className="text-sm font-medium text-muted-foreground">{label}</p>
         <span className={`rounded-xl p-2.5 ${tone}`}>
           <Icon className="h-4 w-4" />
         </span>
       </div>
-      <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
+      <p className="mt-4 text-2xl font-bold tracking-tight text-card-foreground">
         {value}
       </p>
-      <p className="mt-1 text-xs text-slate-500">{detail}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{detail}</p>
     </div>
   );
 }
@@ -158,18 +158,21 @@ export default async function HmoHospitalsPage() {
       {/* Header */}
       <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-medium text-slate-500">Provider Network</p>
-          <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <p className="text-sm font-medium text-muted-foreground">
+            Provider Network
+          </p>
+          <h1 className="mt-1 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Partner Hospitals
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
-            Accredited hospitals, clinics, and diagnostic centers linked to your coverage plans.
+          <p className="mt-1 text-sm text-muted-foreground">
+            Accredited hospitals, clinics, and diagnostic centers linked to your
+            coverage plans.
           </p>
         </div>
 
         <button
           type="button"
-          className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-semibold text-white shadow-sm transition hover:bg-slate-800"
+          className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
         >
           <Plus className="h-4 w-4" />
           <span>Add Hospital Provider</span>
@@ -183,7 +186,7 @@ export default async function HmoHospitalsPage() {
           value={`${HMO_HOSPITALS.length} Centers`}
           detail="100% NHIA compliant"
           icon={Building2}
-          tone="bg-slate-100 text-slate-700"
+          tone="bg-muted text-muted-foreground"
         />
         <StatCard
           label="States Covered"

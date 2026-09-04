@@ -4,18 +4,18 @@ import { formatPrice } from "@/lib/utils";
 
 export function PlanCard({ plan }) {
   return (
-    <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-slate-300">
+    <div className="flex flex-col justify-between rounded-3xl border border-border bg-card p-6 shadow-sm transition hover:border-primary/50">
       <div>
         {/* Header: Tier & Status */}
         <div className="flex items-center justify-between">
-          <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-600">
+          <span className="rounded-lg bg-muted px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
             {plan.tier}
           </span>
           <span
             className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
               plan.status === "Active"
-                ? "bg-emerald-50 text-emerald-700"
-                : "bg-amber-50 text-amber-700"
+                ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300"
+                : "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300"
             }`}
           >
             <span
@@ -28,32 +28,37 @@ export function PlanCard({ plan }) {
         </div>
 
         {/* Plan Name & Pricing */}
-        <h3 className="mt-4 text-xl font-bold text-slate-900">{plan.name}</h3>
-        <p className="mt-1 text-xs text-slate-500 line-clamp-2">
+        <h3 className="mt-4 text-xl font-bold text-card-foreground">
+          {plan.name}
+        </h3>
+        <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
           {plan.description}
         </p>
 
         <div className="mt-4">
-          <p className="text-2xl font-bold text-slate-900">
+          <p className="text-2xl font-bold text-card-foreground">
             {formatPrice(plan.priceAnnual)}
-            <span className="text-xs font-normal text-slate-500"> / year</span>
+            <span className="text-xs font-normal text-muted-foreground">
+              {" "}
+              / year
+            </span>
           </p>
-          <p className="mt-0.5 text-xs text-slate-400">
+          <p className="mt-0.5 text-xs text-muted-foreground">
             {formatPrice(Math.round(plan.priceAnnual / 12))} / month
           </p>
         </div>
 
         {/* Quick Metrics */}
-        <div className="mt-5 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4 text-xs">
+        <div className="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-xs">
           {/* <div>
-            <p className="text-slate-400">Enrollees</p>
-            <p className="mt-0.5 font-bold text-slate-800">
+            <p className="text-muted-foreground">Enrollees</p>
+            <p className="mt-0.5 font-bold text-card-foreground">
               {plan.enrollees.toLocaleString()}
             </p>
           </div>
           <div>
-            <p className="text-slate-400">Hospital Network</p>
-            <p className="mt-0.5 font-bold text-slate-800">
+            <p className="text-muted-foreground">Hospital Network</p>
+            <p className="mt-0.5 font-bold text-card-foreground">
               {plan.hospitalsCount} Centers
             </p>
           </div> */}
@@ -64,13 +69,13 @@ export function PlanCard({ plan }) {
           {plan.coverage.slice(0, 4).map((item) => (
             <span
               key={item}
-              className="rounded-md bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-600"
+              className="rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
             >
               {item}
             </span>
           ))}
           {plan.coverage.length > 4 && (
-            <span className="rounded-md bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-400">
+            <span className="rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
               +{plan.coverage.length - 4} more
             </span>
           )}
@@ -78,10 +83,10 @@ export function PlanCard({ plan }) {
       </div>
 
       {/* Actions */}
-      <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+      <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
         <Link
           href={`/hmo-portal/plans/${plan.id}/edit`}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground"
         >
           <Edit3 className="h-3.5 w-3.5" />
           <span>Edit Plan</span>

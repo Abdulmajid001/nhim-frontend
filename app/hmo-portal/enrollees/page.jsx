@@ -89,12 +89,15 @@ export default async function HmoEnrolleesPage() {
       {/* Header */}
       <header className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-medium text-slate-500">Enrollee Directory</p>
-          <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <p className="text-sm font-medium text-muted-foreground">
+            Enrollee Directory
+          </p>
+          <h1 className="mt-1 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Enrollees
           </h1>
-          <p className="mt-1 text-sm text-slate-500">
-            Manage subscribed members, policy verification, and coverage history.
+          <p className="mt-1 text-sm text-muted-foreground">
+            Manage subscribed members, policy verification, and coverage
+            history.
           </p>
         </div>
       </header>

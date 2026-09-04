@@ -40,13 +40,13 @@ export function HospitalsClient({ initialHospitals }) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {/* Search */}
         <div className="relative w-full max-w-sm">
-          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
             placeholder="Search by hospital name or city..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-slate-400 focus:outline-none"
+            className="w-full rounded-xl border border-input bg-background py-3 pl-10 pr-4 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
           />
         </div>
 
@@ -55,37 +55,41 @@ export function HospitalsClient({ initialHospitals }) {
           <select
             value={selectedState}
             onChange={(e) => setSelectedState(e.target.value)}
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm focus:border-slate-400 focus:outline-none"
+            className="rounded-xl border border-input bg-background px-3 py-2 text-xs font-semibold text-foreground shadow-sm focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <option value="all">All States</option>
-            {states.filter((s) => s !== "all").map((state) => (
-              <option key={state} value={state}>
-                {state}
-              </option>
-            ))}
+            {states
+              .filter((s) => s !== "all")
+              .map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
           </select>
 
           <select
             value={selectedTier}
             onChange={(e) => setSelectedTier(e.target.value)}
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm focus:border-slate-400 focus:outline-none"
+            className="rounded-xl border border-input bg-background px-3 py-2 text-xs font-semibold text-foreground shadow-sm focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
           >
             <option value="all">All Facility Tiers</option>
-            {tiers.filter((t) => t !== "all").map((tier) => (
-              <option key={tier} value={tier}>
-                {tier}
-              </option>
-            ))}
+            {tiers
+              .filter((t) => t !== "all")
+              .map((tier) => (
+                <option key={tier} value={tier}>
+                  {tier}
+                </option>
+              ))}
           </select>
         </div>
       </div>
 
       {/* Hospitals Table */}
-      <div className="mt-6 rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+      <div className="mt-6 overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-slate-200 bg-slate-50/70 text-slate-500">
+              <tr className="border-b border-border bg-muted/70 text-muted-foreground">
                 <th className="py-3.5 px-5 font-semibold">Hospital Name</th>
                 <th className="py-3.5 px-4 font-semibold">Location</th>
                 <th className="py-3.5 px-4 font-semibold">Facility Tier</th>
@@ -94,23 +98,20 @@ export function HospitalsClient({ initialHospitals }) {
                 <th className="py-3.5 px-5 font-semibold text-right">Status</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 text-slate-700">
+            <tbody className="divide-y divide-border text-card-foreground">
               {filteredHospitals.map((hospital) => (
-                <tr
-                  key={hospital.id}
-                  className="transition hover:bg-slate-50/60"
-                >
+                <tr key={hospital.id} className="transition hover:bg-accent/50">
                   {/* Name and Address */}
                   <td className="py-4 px-5">
                     <div className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
                         <Building2 className="h-4 w-4" />
                       </span>
                       <div className="min-w-0">
-                        <p className="font-bold text-slate-900 truncate">
+                        <p className="truncate font-bold text-card-foreground">
                           {hospital.name}
                         </p>
-                        <p className="text-[11px] text-slate-400 truncate">
+                        <p className="truncate text-[11px] text-muted-foreground">
                           {hospital.address}
                         </p>
                       </div>
@@ -118,9 +119,9 @@ export function HospitalsClient({ initialHospitals }) {
                   </td>
 
                   {/* Location */}
-                  <td className="py-4 px-4 text-slate-600">
+                  <td className="px-4 py-4 text-muted-foreground">
                     <div className="flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5 text-slate-400" />
+                      <MapPin className="h-3.5 w-3.5 text-muted-foreground" />
                       <span>
                         {hospital.city}, {hospital.state}
                       </span>
@@ -129,22 +130,22 @@ export function HospitalsClient({ initialHospitals }) {
 
                   {/* Tier */}
                   <td className="py-4 px-4">
-                    <span className="inline-block rounded-md bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">
+                    <span className="inline-block rounded-md bg-muted px-2.5 py-1 text-[11px] font-semibold text-muted-foreground">
                       {hospital.tier}
                     </span>
                   </td>
 
                   {/* Active Enrollees Treated */}
-                  <td className="py-4 px-4 font-medium text-slate-800">
+                  <td className="px-4 py-4 font-medium text-card-foreground">
                     {hospital.enrolleesTreated.toLocaleString()} visits
                   </td>
 
                   {/* Rating */}
                   <td className="py-4 px-4">
-                    <div className="flex items-center gap-1 font-semibold text-slate-800">
+                    <div className="flex items-center gap-1 font-semibold text-card-foreground">
                       <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                       <span>{hospital.rating}</span>
-                      <span className="text-slate-400 text-[11px] font-normal">
+                      <span className="text-[11px] font-normal text-muted-foreground">
                         ({hospital.reviews})
                       </span>
                     </div>
@@ -152,7 +153,7 @@ export function HospitalsClient({ initialHospitals }) {
 
                   {/* Status */}
                   <td className="py-4 px-5 text-right">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-semibold text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
                       <CheckCircle2 className="h-3 w-3" />
                       {hospital.status}
                     </span>
@@ -165,11 +166,11 @@ export function HospitalsClient({ initialHospitals }) {
 
         {filteredHospitals.length === 0 && (
           <div className="p-12 text-center">
-            <Building2 className="mx-auto h-8 w-8 text-slate-300" />
-            <p className="mt-3 text-sm font-semibold text-slate-900">
+            <Building2 className="mx-auto h-8 w-8 text-muted-foreground" />
+            <p className="mt-3 text-sm font-semibold text-card-foreground">
               No partner hospitals match your filter
             </p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-1 text-xs text-muted-foreground">
               Try choosing a different state or facility tier.
             </p>
           </div>

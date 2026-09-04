@@ -24,18 +24,18 @@ export function PlansClient({ initialPlans }) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         {/* Search Box */}
         <div className="relative w-full max-w-sm">
-          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
             placeholder="Search plans by name or tier..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-slate-400 focus:outline-none"
+            className="w-full rounded-xl border border-input bg-background py-2.5 pl-10 pr-4 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring/30"
           />
         </div>
 
         {/* Status Filter Tabs */}
-        <div className="flex rounded-xl border border-slate-200 bg-white p-1 shadow-sm">
+        <div className="flex rounded-xl border border-border bg-card p-1 shadow-sm">
           {[
             { id: "all", label: "All Plans" },
             { id: "active", label: "Active" },
@@ -47,8 +47,8 @@ export function PlansClient({ initialPlans }) {
               onClick={() => setStatusFilter(tab.id)}
               className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
                 statusFilter === tab.id
-                  ? "bg-slate-900 text-white shadow-xs"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-primary text-primary-foreground shadow-xs"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {tab.label}
@@ -65,12 +65,12 @@ export function PlansClient({ initialPlans }) {
       </div>
 
       {filteredPlans.length === 0 && (
-        <div className="mt-8 rounded-3xl border border-dashed border-slate-200 bg-white p-12 text-center">
-          <FileSpreadsheet className="mx-auto h-8 w-8 text-slate-300" />
-          <p className="mt-3 text-sm font-semibold text-slate-900">
+        <div className="mt-8 rounded-3xl border border-dashed border-border bg-card p-12 text-center">
+          <FileSpreadsheet className="mx-auto h-8 w-8 text-muted-foreground" />
+          <p className="mt-3 text-sm font-semibold text-card-foreground">
             No plans found
           </p>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-muted-foreground">
             Try adjusting your search query or filter settings.
           </p>
         </div>
