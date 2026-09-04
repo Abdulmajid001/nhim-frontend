@@ -108,7 +108,7 @@ export function UserDashboardSidebar() {
 
       <aside className="hidden border-b border-border bg-sidebar text-sidebar-foreground lg:block lg:h-screen lg:w-72 lg:border-b-0 lg:border-r lg:overflow-y-auto">
         <div className="p-5">
-          <div className="mb-6 flex items-center gap-3 rounded-2xl border border-sidebar-border bg-sidebar-accent p-3">
+          <div className="mb-6 flex items-center gap-3 rounded-2xl p-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
               <ShieldCheck className="h-5 w-5" />
             </span>
