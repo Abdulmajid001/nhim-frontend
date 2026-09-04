@@ -23,7 +23,7 @@ export const metadata = {
   description: "Nigeria Health Insurance Marketplace",
 };
 
-export default function RootLayout({ children })
+export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
@@ -34,7 +34,7 @@ export default function RootLayout({ children })
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
+          enableSystems
           disableTransitionOnChange
         >
           <TooltipProvider>{children}</TooltipProvider>
