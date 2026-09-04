@@ -58,6 +58,12 @@
   --shadow-offset-x: 0px;
   --shadow-offset-y: 2px;
   --letter-spacing: 0em;
+  --hmo-hero: oklch(0.975 0.018 235);
+  --hmo-hero-foreground: oklch(0.1884 0.0128 248.5103);
+  --hmo-hero-muted: oklch(0.39 0.025 248);
+  --hmo-hero-border: oklch(0.1884 0.0128 248.5103 / 0.18);
+  --hmo-hero-panel: oklch(0.1884 0.0128 248.5103 / 0.07);
+  --hmo-hero-wash: oklch(0.6723 0.1606 244.9955 / 0.16);
 }
 
 .dark {
@@ -115,6 +121,12 @@
   --shadow-offset-y: 2px;
   --letter-spacing: 0em;
   --spacing: 0.25rem;
+  --hmo-hero: oklch(0.135 0.025 248);
+  --hmo-hero-foreground: oklch(0.96 0.004 248);
+  --hmo-hero-muted: oklch(0.76 0.012 248);
+  --hmo-hero-border: oklch(1 0 0 / 0.17);
+  --hmo-hero-panel: oklch(1 0 0 / 0.08);
+  --hmo-hero-wash: oklch(0.6723 0.1606 244.9955 / 0.24);
 }
 
 @theme inline {

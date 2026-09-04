@@ -30,7 +30,7 @@ export default function IdCardContent() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
+    <div className="mx-auto  max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
       <header className="flex flex-col justify-between gap-4 rounded-[28px] border border-border bg-linear-to-r from-primary/8 via-card to-accent/60 p-6 shadow-sm sm:flex-row sm:items-end dark:from-primary/12 dark:via-card dark:to-accent/20">
         <div>
           <p className="text-sm font-medium text-primary">Your membership</p>

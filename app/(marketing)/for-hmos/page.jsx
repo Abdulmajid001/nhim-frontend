@@ -48,18 +48,18 @@ const steps = [
 export default function ForHmosPage() {
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-border bg-secondary text-secondary-foreground">
-        <div className="absolute inset-y-0 right-0 w-1/2 bg-primary/15 [clip-path:polygon(30%_0,100%_0,100%_100%,0_100%)]" />
+      <section className="relative overflow-hidden border-b border-[var(--hmo-hero-border)] bg-[var(--hmo-hero)] text-[var(--hmo-hero-foreground)]">
+        <div className="absolute inset-y-0 right-0 w-1/2 bg-[var(--hmo-hero-wash)] [clip-path:polygon(30%_0,100%_0,100%_100%,0_100%)]" />
         <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
           <div>
-            <div className="mb-6 flex items-center gap-2 text-sm font-medium text-primary-foreground/70">
+            <div className="mb-6 flex items-center gap-2 text-sm font-medium text-[var(--hmo-hero-muted)]">
               <ShieldCheck className="h-4 w-4 text-primary" />
               The marketplace for better health cover
             </div>
             <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
               Make your HMO the easy choice.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-secondary-foreground/70 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-7 text-[var(--hmo-hero-muted)] sm:text-lg">
               NHIM.ng connects accredited HMOs with people who are ready to find
               and buy health insurance. Bring your plans to a marketplace built
               for clarity and trust.
@@ -73,17 +73,17 @@ export default function ForHmosPage() {
               </Link>
               <Link
                 href="/help"
-                className="inline-flex items-center justify-center rounded-lg border border-secondary-foreground/20 px-5 py-3 text-sm font-semibold transition-colors hover:bg-secondary-foreground/10"
+                className="inline-flex items-center justify-center rounded-lg border border-[var(--hmo-hero-border)] px-5 py-3 text-sm font-semibold transition-colors hover:bg-[var(--hmo-hero-panel)]"
               >
                 Talk to our team
               </Link>
             </div>
           </div>
 
-          <div className="relative rounded-2xl border border-secondary-foreground/15 bg-secondary-foreground/10 p-6 backdrop-blur-sm sm:p-8">
-            <div className="flex items-start justify-between border-b border-secondary-foreground/15 pb-6">
+          <div className="relative rounded-2xl border border-[var(--hmo-hero-border)] bg-[var(--hmo-hero-panel)] p-6 backdrop-blur-sm sm:p-8">
+            <div className="flex items-start justify-between border-b border-[var(--hmo-hero-border)] pb-6">
               <div>
-                <p className="text-xs uppercase tracking-[0.18em] text-secondary-foreground/50">
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--hmo-hero-muted)]/70">
                   Partner snapshot
                 </p>
                 <p className="mt-2 text-2xl font-semibold">
@@ -101,13 +101,13 @@ export default function ForHmosPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="flex items-center gap-2 rounded-lg bg-secondary-foreground/10 px-3 py-3 text-sm text-secondary-foreground/80"
+                    className="flex items-center gap-2 rounded-lg bg-[var(--hmo-hero-panel)] px-3 py-3 text-sm text-[var(--hmo-hero-foreground)]/85"
                 >
                   <Check className="h-4 w-4 shrink-0 text-primary" /> {item}
                 </div>
               ))}
             </div>
-            <p className="mt-7 text-sm leading-6 text-secondary-foreground/60">
+            <p className="mt-7 text-sm leading-6 text-[var(--hmo-hero-muted)]/85">
               One place to present your plans, strengthen your reputation, and
               serve members better.
             </p>

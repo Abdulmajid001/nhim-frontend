@@ -92,7 +92,7 @@ export default function SettingsContent() {
   };
 
   return (
-    <div className="mx-auto max-w-5xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
+    <div className="mx-auto max-w-7xl px-5 py-7 sm:px-8 lg:px-10 lg:py-10">
       <header>
         <p className="text-sm font-medium text-primary">Account preferences</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
