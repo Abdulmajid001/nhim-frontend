@@ -100,6 +100,18 @@ export function HmosExplorer({ initialHmos }) {
             ))}
           </div>
         )}
+        <div className="mt-16 flex flex-col items-center  py-16 text-center">
+          <h3 className="font-bold text-3xl pb-4">Are You an HMO?</h3>
+          <p className="max-w-4xl">Join Nigeria's fastest-growing health insurance marketplace. Reach thousands of potential customers and grow your business with NHIM.ng.</p>
+          <div className="flex gap-2">    
+            <button type="button" className="mt-5 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90">
+              Register Your HMO &rarr;  
+            </button>
+            <button className="cursor-pointer mt-5 rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-semibold text-dark shadow-sm hover:opacity-90 dark:text-white ">
+              Learn More
+            </button>
+          </div>
+        </div>
       </section>
     </>
   );
