@@ -80,7 +80,7 @@ import { Heading } from "./Heading";
 const HMO_PROVIDERS = [
   {
     name: "Leadway Health",
-    image: "/hmo-imgs/leadway.png",
+    image: "/hmo-imgs/leadway.webp",
   },
   {
     name: "Reliance HMO",
@@ -104,7 +104,7 @@ const HMO_PROVIDERS = [
   },
   {
     name: "Prestige Health",
-    image: "/hmo-imgs/prestige.png",
+    image: "/hmo-imgs/prestige.webp",
   },
   {
     name: "Bupa",
@@ -116,7 +116,7 @@ const HMO_PROVIDERS = [
   },
   {
     name: "Starcare",
-    image: "/hmo-imgs/starcare.png",
+    image: "/hmo-imgs/starcare.webp",
   },
 ];
 
@@ -169,7 +169,7 @@ export function OurPartners() {
                 width={180}
                 height={80}
                 className="h-auto w-auto object-contain"
-                priority={idx < HMO_PROVIDERS.length}
+                // priority={idx < HMO_PROVIDERS.length}
               />
             </div>
           ))}
