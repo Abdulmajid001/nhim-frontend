@@ -1,4 +1,4 @@
-import { StaffClient } from "./StaffClient";
+import { StaffClient } from "../../../components/hmo-portal/StaffClient";
 
 const MOCK_STAFF = [
   {

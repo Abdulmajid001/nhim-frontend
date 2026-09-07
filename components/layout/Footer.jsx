@@ -110,7 +110,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/60 text-foreground transition-colors duration-200 dark:bg-[#16171a]">
+    <footer className="border-t border-border bg-card/60 text-foreground transition-colors duration-200">
       <div className="mx-auto max-w-6xl px-6 pt-16 pb-8">
         {/* Main Grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
@@ -126,8 +126,9 @@ export function Footer() {
             </Link>
 
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground dark:text-zinc-400">
-              Nigeria&apos;s premier digital marketplace for health insurance. Compare,
-              choose, and buy affordable health insurance from trusted HMOs.
+              Nigeria&apos;s premier digital marketplace for health insurance.
+              Compare, choose, and buy affordable health insurance from trusted
+              HMOs.
             </p>
 
             {/* Social Icons */}

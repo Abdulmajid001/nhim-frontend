@@ -7,7 +7,7 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import { HospitalsClient } from "@/app/hmo-portal/hospitals/HospitalsClient";
+import { HospitalsClient } from "@/components/hmo-portal/HospitalsClient";
 
 function StatCard({ label, value, detail, icon: Icon, tone }) {
   return (

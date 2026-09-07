@@ -1,4 +1,4 @@
-import { SettingsClient } from "./SettingsClient";
+import { SettingsClient } from "../../../components/hmo-portal/SettingsClient";
 
 export default async function HmoSettingsPage() {
   return (

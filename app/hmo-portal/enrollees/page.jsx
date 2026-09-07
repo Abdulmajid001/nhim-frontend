@@ -1,4 +1,4 @@
-import { EnrolleesClient } from "./EnrolleesClient";
+import { EnrolleesClient } from "../../../components/hmo-portal/EnrolleesClient";
 
 const MOCK_ENROLLEES = [
   {

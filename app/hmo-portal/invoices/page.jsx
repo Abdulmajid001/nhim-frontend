@@ -1,4 +1,4 @@
-import { InvoicesClient } from "./InvoicesClient";
+import { InvoicesClient } from "../../../components/hmo-portal/InvoicesClient";
 
 const MOCK_INVOICES = [
   {

@@ -6,7 +6,7 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-import { PlansClient } from "@/app/hmo-portal/plans/PlansClient";
+import { PlansClient } from "@/components/hmo-portal/PlansClient";
 import { formatPrice } from "@/lib/utils";
 
 function StatCard({ label, value, detail, icon: Icon, tone }) {

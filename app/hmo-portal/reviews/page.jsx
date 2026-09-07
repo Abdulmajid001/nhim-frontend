@@ -1,4 +1,4 @@
-import { ReviewsClient } from "./ReviewsClient";
+import { ReviewsClient } from "../../../components/hmo-portal/ReviewsClient";
 
 const MOCK_REVIEWS = [
   {
