@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Search, CreditCard, Stethoscope } from "lucide-react";
+import { Search, CreditCard, Stethoscope, ShieldCheck } from "lucide-react";
 import { Heading } from "./Heading";
 
 const steps = [
@@ -9,19 +9,19 @@ const steps = [
     icon: Search,
     title: "Search & compare",
     description:
-      "Filter every plan on the market by price, hospital network, and coverage — side by side, no sales calls.",
+      "Browse through verified HMOs and compare their health insurance plans side by side.",
   },
   {
     icon: CreditCard,
-    title: "Buy & get verified",
+    title: "Choose a Plan",
     description:
-      "Pay securely and receive a policy number and digital ID card the moment your HMO confirms enrollment.",
+      "Select the plan that best fits your needs, budget, and preferred hospital network.",
   },
   {
-    icon: Stethoscope,
-    title: "Use it anywhere",
+    icon: ShieldCheck,
+    title: "Buy and Get Covered",
     description:
-      "Walk into any partner hospital in your plan's network. Coverage checks happen in real time at the front desk.",
+      "Complete your purchase online and receive instant coverage confirmation.",
   },
 ];
 
@@ -63,8 +63,8 @@ export function HowItWorks() {
       {/* Header */}
       <Heading
         eyebrow="Simple process"
-        title="How the marketplace works"
-        description="From comparing plans to receiving care at a hospital, everything happens in just three simple steps."
+        title="How It Works"
+        description="Getting health insurance has never been easier. Follow these simple steps to protect yourself and your family."
       />
 
       {/* Steps */}

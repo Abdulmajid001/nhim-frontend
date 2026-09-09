@@ -364,11 +364,15 @@ function MarqueeRow({ items, direction, speed = 45 }) {
 export function TestimonialsMarquee() {
   return (
     <section className="mx-auto w-full min-w-0 max-w-6xl px-4 py-12 sm:px-6 sm:py-16 md:py-24">
-      <Heading
-        eyebrow="Testimonials"
+      {/* <Heading
+        // eyebrow="Testimonials"
         title="What people are saying"
         description="Don't just take our word for it — see what members and HR teams have to say about their experience."
         className=""
+      /> */}
+      <Heading
+        title="What Our Users Say"
+        description="Join thousands of satisfied Nigerians who have found their perfect health insurance through NHIM."
       />
 
       <div className="relative mt-8 flex w-full min-w-0 flex-col gap-4 sm:mt-10 sm:gap-5 md:mt-14">

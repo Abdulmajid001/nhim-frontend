@@ -9,6 +9,8 @@ const navLinks = [
   { label: "Compare Plans", href: "/plans" },
   { label: "HMOs", href: "/hmos" },
   { label: "For HMOs", href: "/for-hmos" },
+  { label: "Blogs", href: "/blog" },
+  { label: "Contact", href: "/contact" },
   { label: "Help", href: "/help" },
 ];
 

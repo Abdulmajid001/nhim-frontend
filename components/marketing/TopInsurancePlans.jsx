@@ -316,10 +316,15 @@ export function TopInsurancePlans() {
       }}
       className="mx-auto w-full max-w-7xl overflow-hidden px-4 py-20 sm:px-6 sm:py-24"
     >
+        {/* <Heading
+          eyebrow="Featured plans"
+          title="Find a health plan that fits your needs"
+          description="Compare carefully selected healthcare plans from trusted HMO providers and find the right balance of coverage, price, and benefits."
+        /> */}
       <Heading
-        eyebrow="Featured plans"
-        title="Find a health plan that fits your needs"
-        description="Compare carefully selected healthcare plans from trusted HMO providers and find the right balance of coverage, price, and benefits."
+        // eyebrow="Featured plans"
+        title="Top Insurance Plans"
+        description="Explore our most popular health insurance plans, chosen by thousands of Nigerians for their comprehensive coverage and value."
       />
 
       <TopInsurancePlansGrid featured={FEATURED_PLANS} />

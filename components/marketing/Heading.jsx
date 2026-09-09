@@ -25,9 +25,9 @@ export function Heading({
       variants={item}
       className={`mx-auto max-w-2xl text-center ${className}`}
     >
-      <div className="mb-3 inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground">
+      {/* <div className="mb-3 inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-sm text-muted-foreground">
           {eyebrow}
-        </div>
+        </div> */}
 
       <h2 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
         {title}
