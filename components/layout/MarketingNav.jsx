@@ -2,16 +2,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, ShieldCheck } from "lucide-react";
+import { Menu, X, ShieldCheck, User2Icon, ChevronDown } from "lucide-react";
 import { ModeToggle } from "../ui/mode-toggle";
 
 const navLinks = [
-  { label: "Compare Plans", href: "/plans" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/About" },
+  { label: "Market", href: "/plans" },
   { label: "HMOs", href: "/hmos" },
-  { label: "For HMOs", href: "/for-hmos" },
+  // { label: "For HMOs", href: "/for-hmos" },
   { label: "Blogs", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Help", href: "/help" },
+  // { label: "Help", href: "/help" },
 ];
 
 export function MarketingNav() {
@@ -55,15 +57,18 @@ export function MarketingNav() {
         <div className="hidden items-center gap-2 md:flex">
           <Link
             href="/login"
-            className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground flex items-center gap-3 "
           >
-            Log in
+            {/* <span></span> */}
+            <User2Icon className="w-3.5 h-3.5" />
+            <span>Log in </span>
+            <ChevronDown className="w-3.5 h-3.5" />
           </Link>
           <Link
             href="/register"
             className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-opacity hover:opacity-90"
           >
-            Get covered
+            Explore Plans
           </Link>
           <ModeToggle />
         </div>

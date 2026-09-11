@@ -18,7 +18,7 @@ export function JoinNhim() {
             <div className="relative">
               <div className="overflow-hidden rounded-full border-4 border-primary/30 bg-white shadow-2xl">
                 <Image
-                  src="/hero-img.jpg"
+                  src="/doctor-portrait.jpg"
                   alt="NHIM healthcare doctor"
                   width={420}
                   height={420}

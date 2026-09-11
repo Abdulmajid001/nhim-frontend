@@ -1,10 +1,10 @@
 import { Hero } from "@/components/marketing/Hero";
-import { TrustStrip } from "@/components/marketing/TrustStrip";
+// import { TrustStrip } from "@/components/marketing/TrustStrip";
 import { HowItWorks } from "@/components/marketing/HowItWorks";
 import { JoinNhim } from "@/components/marketing/JoinNhim";
 import { OurPartners } from "@/components/marketing/OurPartners";
 import { TopInsurancePlans } from "@/components/marketing/TopInsurancePlans";
-import { TestimonialsMarquee } from "@/components/marketing/Testimonial";
+import { Testimonials } from "@/components/marketing/Testimonial";
 import { MarketingNav } from "@/components/layout/MarketingNav";
 import { Footer } from "@/components/layout/Footer";
 
@@ -13,11 +13,11 @@ export default function Home() {
     <>
       <MarketingNav />
       <Hero />
-      <TrustStrip />
+      {/* <TrustStrip /> */}
       <HowItWorks />
       <OurPartners />
       <TopInsurancePlans />
-      <TestimonialsMarquee />
+      <Testimonials />
       <JoinNhim />
       <Footer />
     </>
